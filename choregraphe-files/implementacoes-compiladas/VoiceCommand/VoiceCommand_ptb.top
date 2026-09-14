@@ -1,0 +1,465 @@
+topic: ~VoiceCommand()
+language: ptb
+
+# =============================================================================
+# VOCABULÁRIO (CONCEPTS)
+# =============================================================================
+
+# --- Cumprimentos e Saudações ---
+concept:(ola) [
+    oi
+    olá
+]
+
+concept:(oi_nao) [
+    "oi nau"
+    "olá nau"
+    "oi robô"
+    "olá robô"
+    "e aí nau"
+    "fala nau"
+]
+
+concept:(bom_dia) [
+    "bom dia"
+    "boa tarde"
+    "boa noite"
+]
+
+concept:(tudo_bem) [
+    "tudo bem"
+    "tudo certo"
+    "como vai"
+    "como você está"
+    beleza
+]
+
+# --- Informações sobre o NAO ---
+concept:(quem_e) [
+    "quem é você"
+    "qual seu nome"
+    "qual o seu nome"
+    "como se chama"
+    "o que é você"
+]
+
+concept:(onde_mora) [
+    "onde mora"
+    "onde vive"
+    "onde fica"
+]
+
+concept:(o_que_faz) [
+    "o que faz"
+    "o que sabe fazer"
+    "o que você faz"
+]
+
+concept:(idade) [
+    "quantos anos"
+    "qual sua idade"
+    "que idade tem"
+]
+
+concept:(criador) [
+    "quem te criou"
+    "quem te fez"
+    "quem criou você"
+]
+
+# --- Agradecimentos e Despedidas ---
+concept:(obrigado) [
+    obrigado
+    obrigada
+    valeu
+    brigadão
+]
+
+concept:(tchau) [
+    tchau
+    adeus
+    falou
+    "até mais"
+    "até logo"
+    "a gente se vê"
+]
+
+# --- Comandos de Controle ---
+concept:(para) [
+    para
+    pare
+    chega
+    stop
+    "para tudo"
+    "pare agora"
+    "para aí"
+    "pode parar"
+    "já chega"
+]
+
+concept:(aborta) [
+    aborta
+    cancela
+    reinicia
+    reset
+    "aborta tudo"
+    "cancela tudo"
+    "encerra tudo"
+]
+
+# --- Verbos e Ações ---
+concept:(danca) [
+    dança
+    dançar
+    dançando
+]
+
+concept:(faz_danca) [
+    "faz a dança"
+    "faz uma dança"
+    "manda a dança"
+]
+
+concept:(manda_passinho) [
+    "manda o passinho"
+    "manda um passinho"
+    "solta o passinho"
+]
+
+concept:(acao_dancar) [
+    ~danca
+    ~faz_danca
+    ~manda_passinho
+]
+
+concept:(imita) [
+    imita
+    imitar
+    imitando
+]
+
+concept:(faz_animal) [
+    "faz de"
+    "faz um"
+    "faz o"
+    "vira um"
+]
+
+concept:(acao_imitar) [
+    ~imita
+    ~faz_animal
+]
+
+concept:(busca) [
+    busca
+    buscar
+    procura
+    procurar
+    encontra
+    encontrar
+    acha
+    achar
+    localiza
+]
+
+concept:(cade) [
+    cadê
+    "onde está"
+    "onde tá"
+]
+
+concept:(acao_buscar) [
+    ~busca
+    ~cade
+]
+
+# --- Danças ---
+concept:(macarena) [
+    macarena
+    "a macarena"
+]
+
+concept:(disco) [
+    disco
+    discoteca
+    "a disco"
+]
+
+concept:(headbang) [
+    headbang
+    "head bang"
+]
+
+concept:(danca_opa) [
+    "dança do opa"
+    "opa opa"
+]
+
+concept:(saxofone) [
+    saxofone
+    sax
+]
+
+concept:(guitarra) [
+    guitarra
+    "a guitarra"
+]
+
+# --- Modificadores ---
+concept:(em_loop) [
+    "em loop"
+    "sem parar"
+    continuamente
+    infinito
+    "pra sempre"
+]
+
+concept:(aleatorio) [
+    aleatória
+    aleatório
+    qualquer
+    "qualquer uma"
+    surpresa
+    "me surpreende"
+]
+
+# --- Animais ---
+concept:(elefante) [
+    elefante
+    "um elefante"
+    "o elefante"
+]
+
+concept:(rato) [
+    rato
+    ratinho
+    "um rato"
+    "o rato"
+]
+
+# --- Busca Visual: Itens Cadastrados ---
+concept:(folder_cetisme) [
+    folder
+    "o folder"
+    "folder do cetisme"
+]
+
+concept:(flyer_cetisme) [
+    flyer
+    "o flyer"
+    "flyer do cetisme"
+]
+
+# --- Busca Visual: Genérica ---
+concept:(algo) [
+    algo
+    "alguma coisa"
+    "qualquer coisa"
+    objeto
+    "um objeto"
+    "algum objeto"
+]
+
+concept:(olha_redor) [
+    "olha ao redor"
+    "olha em volta"
+    "dá uma olhada"
+]
+
+concept:(ve_que_tem) [
+    "vê o que tem"
+    "o que você vê"
+    "o que tem aí"
+    "o que consegue ver"
+]
+
+concept:(escaneia) [
+    escaneia
+    verifica
+    "faz varredura"
+    "faz uma varredura"
+]
+
+# --- Interação com IA ---
+concept:(pergunta_ia) [
+    "tenho uma dúvida"
+    "quero perguntar"
+    "posso perguntar"
+    "me ajuda"
+    "preciso de ajuda"
+]
+
+concept:(conversa_ia) [
+    "vamos conversar"
+    "quero conversar"
+    "bora conversar"
+]
+
+# --- Ajuste de Temporização ---
+concept:(delay) ["."]
+
+
+# =============================================================================
+# REGRAS (DIALOG RULES)
+# =============================================================================
+
+# --- Cumprimentos e Básicos ---
+u:(~ola)
+~delay
+^rand["Oi! Como posso ajudar?" "Olá! O que vai ser hoje?" "Oi! Tudo bem?"]
+
+u:(~oi_nao)
+~delay
+^rand["Oi! Que bom falar com você!" "Olá! Pronto pra ação!" "E aí! Tudo certo?"]
+
+u:(~bom_dia)
+~delay
+^rand["Bom dia! Como posso ajudar?" "Boa tarde! O que vai ser?" "Boa noite! Em que posso ajudar?"]
+
+u:(~tudo_bem)
+~delay
+^rand["Tudo ótimo! E você?" "Tudo certo! Como posso ajudar?" "Estou bem! E você?"]
+
+u:(~quem_e)
+~delay
+^rand["Sou o NAO, um robô humanoide!" "Me chamo NAO! Sou um robô!" "Eu sou o NAO!"]
+
+u:(~onde_mora)
+~delay
+Moro aqui com vocês!
+
+u:(~o_que_faz)
+~delay
+Sei dançar, imitar animais, buscar objetos e conversar!
+
+u:(~idade)
+~delay
+Tenho alguns anos, mas me sinto jovem!
+
+u:(~criador)
+~delay
+Fui criado pela Aldebaran, agora SoftBank Robotics!
+
+u:(~obrigado)
+~delay
+^rand["De nada!" "Disponha!" "Por nada!" "Foi um prazer!"]
+
+u:(~tchau)
+~delay
+^rand["Tchau! Até a próxima!" "Até mais! Volte sempre!" "Falou! Cuide-se!"]
+
+# --- Danças Individuais ---
+u:(~acao_dancar ~macarena)
+~delay
+^rand["Dançando macarena!" "Macarena! Adoro essa!" "Bora de macarena!" "Macarena chegando!" "Lá vai macarena!" "Mandando macarena!"] $dance=1
+
+u:(~acao_dancar ~disco)
+~delay
+^rand["Dançando disco!" "Disco! Anos 70!" "Modo discoteca!" "Disco chegando!" "Lá vai disco!" "Mandando disco!"] $dance=2
+
+u:(~acao_dancar ~headbang)
+~delay
+^rand["Dançando headbang!" "Rock and roll!" "Modo metaleiro!" "Headbang chegando!" "Lá vai headbang!" "Mandando headbang!"] $dance=3
+
+u:(~acao_dancar ~danca_opa)
+~delay
+^rand["Dançando opa!" "Opa opa!" "Dança do opa!" "Opa chegando!" "Lá vai opa!" "Mandando opa!"] $dance=4
+
+u:(~acao_dancar ~saxofone)
+~delay
+^rand["Dançando saxofone!" "Epic sax!" "Modo saxofonista!" "Saxofone chegando!" "Lá vai sax!" "Mandando saxofone!"] $dance=5
+
+u:(~acao_dancar ~guitarra)
+~delay
+^rand["Dançando guitarra!" "Rock on!" "Air guitar!" "Guitarra chegando!" "Lá vai guitarra!" "Mandando guitarra!"] $dance=6
+
+# --- Danças em Loop ---
+u:({~danca} ~macarena ~em_loop)
+~delay
+^rand["Macarena sem parar!" "Macarena infinita!"] $dance_loop=1
+
+u:({~danca} ~disco ~em_loop)
+~delay
+^rand["Disco sem parar!" "Disco infinito!"] $dance_loop=2
+
+u:({~danca} ~headbang ~em_loop)
+~delay
+^rand["Headbang sem parar!" "Headbang infinito!"] $dance_loop=3
+
+u:({~danca} ~danca_opa ~em_loop)
+~delay
+^rand["Opa sem parar!" "Opa infinito!"] $dance_loop=4
+
+u:({~danca} ~saxofone ~em_loop)
+~delay
+^rand["Saxofone sem parar!" "Saxofone infinito!"] $dance_loop=5
+
+u:({~danca} ~guitarra ~em_loop)
+~delay
+^rand["Guitarra sem parar!" "Guitarra infinita!"] $dance_loop=6
+
+# --- Danças Aleatórias ---
+u:([~danca ~faz_danca] ~aleatorio)
+~delay
+^rand["Dança surpresa!" "Deixa eu escolher!" "Uma dança aleatória!" "Surpresa!" "Dança surpresa chegando!"] $dance_random=1
+
+u:(~danca ~aleatorio ~em_loop)
+~delay
+Dança aleatória sem parar! $dance_random_loop=1
+
+# --- Imitações de Animais ---
+u:(~acao_imitar ~elefante)
+~delay
+^rand["Imitando elefante!" "Virando elefante!" "Sou um elefante!" "Elefante!" "Modo elefante!"] $animal=1
+
+u:(~acao_imitar ~rato)
+~delay
+^rand["Imitando ratinho!" "Virando rato!" "Sou um rato!" "Ratinho!" "Modo rato!"] $animal=2
+
+u:(~imita animal {~aleatorio})
+~delay
+^rand["Animal surpresa!" "Que animal será?" "Animal aleatório!" "Surpresa!"] $animal_random=1
+
+# --- Busca Visual Específica ---
+u:(~acao_buscar ~folder_cetisme)
+~delay
+^rand["Procurando o folder!" "Buscando o folder!" "Vou encontrar o folder!" "Vou achar o folder!"] $buscar_item=folder do CE TIS ME
+
+u:(~acao_buscar ~flyer_cetisme)
+~delay
+^rand["Procurando o flyer!" "Buscando o flyer!" "Vou encontrar o flyer!" "Vou achar o flyer!"] $buscar_item=flyer do CE TIS ME
+
+# --- Busca Visual Genérica ---
+u:(~busca ~algo)
+~delay
+^rand["Procurando algo!" "Buscando objeto!" "Vou encontrar algo!"] $buscar_qualquer_coisa=1
+
+u:(~olha_redor)
+~delay
+^rand["Olhando ao redor!" "Verificando!" "Deixa eu ver!"] $buscar_qualquer_coisa=1
+
+u:(~ve_que_tem)
+~delay
+^rand["Vou verificar!" "Deixa eu olhar!" "Analisando!"] $buscar_qualquer_coisa=1
+
+u:(~escaneia)
+~delay
+^rand["Escaneando!" "Fazendo varredura!" "Verificando!"] $buscar_qualquer_coisa=1
+
+# --- Interação com IA ---
+u:(~pergunta_ia)
+~delay
+^rand["Claro! Aguarde meu sinal!" "Pode perguntar! Espera o sinal!" "Estou ouvindo!"] $IA_box=1
+
+u:(~conversa_ia)
+~delay
+^rand["Vamos conversar!" "Bora conversar!" "Estou pronto!"] $IA_box=1
+
+# --- Controle e Parada ---
+u:(~para)
+~delay
+^rand["Parando!" "Ok, parei!" "Pronto!"] $parar_dancas=1
+
+u:(~aborta)
+~delay
+^rand["Abortando!" "Cancelando tudo!" "Reiniciando!"] $abortar_tudo=1

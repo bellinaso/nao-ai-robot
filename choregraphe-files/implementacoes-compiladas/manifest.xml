@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package uuid="implementacoes-compiladas-d35496" version="0.0.0" installOnlyAtStartup="false">
+ <names>
+  <name lang="en_US">Untitled</name>
+ </names>
+ <supportedLanguages>
+  <language>pt_BR</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+  <language>pt_BR</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="behavior_1">
+   <userRequestable/>
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <dialogContent typeVersion="1.0" topicName="VoiceCommand">
+   <topic path="VoiceCommand/VoiceCommand_ptb.top" language="pt_BR"/>
+  </dialogContent>
+ </contents>
+</package>
